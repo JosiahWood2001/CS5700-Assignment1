@@ -2,6 +2,11 @@ class Point (
     private var x: Double,
     private var y: Double
 ){
+    init{
+        if (!x.isFinite()||!y.isFinite()){
+            throw IllegalArgumentException("Point coordinates must be a finite double")
+        }
+    }
     fun getX(): Double = x
     fun getY(): Double = y
     fun clone(): Point = Point(x, y)
