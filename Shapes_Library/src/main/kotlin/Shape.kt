@@ -1,7 +1,9 @@
 abstract class Shape (definingPointsInput: List<Point>){
     protected var definingPoints: List<Point> = definingPointsInput.map{it.clone()}
-
-    abstract fun validateDimensions()
+    init{
+        validateDimensions()
+    }
+    protected abstract fun validateDimensions()
     protected fun getPoints(): List<Point>{
         return definingPoints.map { it.clone() }
     }
