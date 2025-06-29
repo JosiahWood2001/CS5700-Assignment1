@@ -27,6 +27,10 @@ class PointTest {
         point.move(1.0,-4.0)
         assertEquals(2.0,point.getX())
         assertEquals(2.0,point.getY())
+        assertThrows<IllegalArgumentException>{point.move(Double.NaN,0.0)}
+        assertThrows<IllegalArgumentException>{point.move(Double.POSITIVE_INFINITY,0.0)}
+        assertThrows<IllegalArgumentException>{point.move(0.0,Double.NEGATIVE_INFINITY)}
+        assertThrows<IllegalArgumentException>{point.move(0.0,Double.NaN)}
     }
     @Test
     fun testPointCloning(){

@@ -11,6 +11,9 @@ class Point (
     fun getY(): Double = y
     fun clone(): Point = Point(x, y)
     fun move(dx: Double, dy: Double){
+        if(!dx.isFinite() || !dy.isFinite()){
+            throw IllegalArgumentException("Movement vector must have only finite doubles")
+        }
         x += dx
         y += dy
     }
