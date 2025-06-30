@@ -2,6 +2,9 @@ import kotlin.math.abs
 import kotlin.math.sqrt
 
 class Line(a: Point, b: Point) : Shape(listOf(a,b)){
+    init{
+        validateDimensions()
+    }
     override fun validateDimensions(){
         val a: Point = definingPoints[0]
         val b: Point = definingPoints[1]
@@ -18,7 +21,13 @@ class Line(a: Point, b: Point) : Shape(listOf(a,b)){
         if (a.getX()==b.getX()){
             return Double.NaN
         }
-        return (b.getY()-a.getY())/(b.getX()-a.getX())
+        val slope: Double = (b.getY()-a.getY())/(b.getX()-a.getX())
+        if (slope.isFinite()){
+            return slope
+        }
+        else{
+            return Double.NaN
+        }
     }
     fun getLength():Double{
         val a: Point = definingPoints[0]

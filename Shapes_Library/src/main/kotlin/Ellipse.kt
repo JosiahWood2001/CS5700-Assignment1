@@ -2,9 +2,17 @@ open class Ellipse(center: Point,
                    protected var radiusX: Double,
                    protected var radiusY: Double
 ):Shape(listOf(center)) {
+    init{
+        validateDimensions()
+    }
     override fun validateDimensions(){
-        if (!(radiusX > 0.0 && radiusY > 0.0)){
+        println(radiusX)
+        println(radiusY)
+        if (!(radiusX > 0.0&&radiusY > 0.0)){
             throw IllegalArgumentException("The radius must be positive.")
+        }
+        if (!this.getArea().isFinite()){
+            throw IllegalArgumentException("The area must be finite, this Ellipse is too large")
         }
     }
     fun getRadius(): List<Double> {

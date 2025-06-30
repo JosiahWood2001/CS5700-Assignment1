@@ -67,7 +67,7 @@ class LineTest {
         val lineE = Line(Point(0.0,0.0),Point(10.0,2.0))
         assertEquals(0.0,lineA.getSlope())
         assertEquals(Double.NaN,lineB.getSlope())
-        assertEquals(Double.POSITIVE_INFINITY,lineC.getSlope())
+        assertEquals(Double.NaN,lineC.getSlope())
         assertEquals(-1.0,lineD.getSlope())
         assertEquals(0.2,lineE.getSlope())
     }
