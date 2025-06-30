@@ -6,16 +6,14 @@ open class Ellipse(center: Point,
         validateDimensions()
     }
     override fun validateDimensions(){
-        println(radiusX)
-        println(radiusY)
         if (!(radiusX > 0.0&&radiusY > 0.0)){
             throw IllegalArgumentException("The radius must be positive.")
         }
         if (!this.getArea().isFinite()){
-            throw IllegalArgumentException("The area must be finite, this Ellipse is too large")
+            throw IllegalArgumentException("The area must be finite, this is too large")
         }
     }
-    fun getRadius(): List<Double> {
+    open fun getRadius(): List<Double> {
         return listOf(radiusX, radiusY)
     }
     fun getArea(): Double {

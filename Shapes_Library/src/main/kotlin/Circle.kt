@@ -1,9 +1,9 @@
-class Circle(center: Point, radiusX: Double, radiusY: Double
-):Ellipse(center,radiusX,radiusY){
-    override fun validateDimensions() {
+class Circle(center: Point, radius: Double
+):Ellipse(center,radius,radius){
+    init{
         super.validateDimensions()
-        if (radiusX!=radiusY){
-            throw IllegalArgumentException("A circle must have the same radiusX and radiusY")
-        }
+    }
+    override fun getRadius(): List<Double>{
+        return listOf(radiusX)
     }
 }
