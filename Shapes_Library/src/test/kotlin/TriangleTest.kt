@@ -59,9 +59,14 @@ class TriangleTest {
         val pointA = Point(-10.0,20.0)
         val pointB = Point(-20.0,10.0)
         val pointC = Point(-10.0,10.0)
+        val pointD = Point(100.0,70.0)
         val triangleA = Triangle(pointA,pointB,pointC)
-        val triangleB = Triangle(pointB,pointA, pointC)
+        val triangleB = Triangle(pointB,pointA, pointD)
+        val triangleC = Triangle(pointC, pointD, pointA)
+        val triangleD = Triangle(pointB, pointC, pointD)
         assertEquals(50.0,triangleA.getArea())
-        assertEquals(50.0,triangleB.getArea())
+        assertEquals(300.0,triangleB.getArea())
+        assertEquals(550.0,triangleC.getArea())
+        assertEquals(300.0,triangleD.getArea())
     }
 }
