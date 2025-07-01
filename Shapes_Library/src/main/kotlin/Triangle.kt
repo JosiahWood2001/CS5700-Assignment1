@@ -7,12 +7,16 @@ class Triangle(corner1: Point, corner2: Point, corner3: Point):Shape(listOf(corn
         validateDimensions()
     }
     override fun validateDimensions() {
-        if (vector1[1]*vector2[0]-vector1[0]*vector2[1]==0.0) {
+        val area=getArea()
+        if (area==0.0) {
             throw IllegalArgumentException("The 3 points of a triangle cannot be collinear")
+        }
+        if (!area.isFinite()){
+            throw IllegalArgumentException("The triangle is too large")
         }
     }
     fun getArea(): Double {
-        return abs(vector1[1]*vector2[0]-vector1[0]*vector2[1]/2.0)
+        return abs(vector1[0]*vector2[1]-vector1[1]*vector2[0])/2.0
     }
     fun getCorners(): List<Point> = getPoints()
 }
